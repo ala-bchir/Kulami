@@ -1,9 +1,10 @@
 import React,{useState,useEffect, useContext} from "react";
+import { FirstContext } from "./First";
 import { LastContext } from "./Lastpick";
 import { UserContext } from "./Player";
 
 export default function Bille(props){
-    
+    const {first,setFirst}= useContext(FirstContext);
     const rouge ="https://microentreprendre.com/wp-content/uploads/2021/01/cercle-rouge-fond-transparent.png"
     const gris = "https://icones.pro/wp-content/uploads/2021/04/icone-cercle-rempli-gris.png"
     const noir = "https://www.pngkey.com/png/full/439-4396743_wca-black-circle.png"
@@ -19,13 +20,17 @@ export default function Bille(props){
     useEffect(()=>{
         if(((x === lastpick.x && piece !== lastpick.piece)||(y === lastpick.y && piece !== lastpick.piece)) && !taken){
             setColor(vert)
+            
+            
         }
+        if(((x!= lastpick.x && y!= lastpick.y) && !taken)||(piece===lastpick.piece && !taken)){setColor(gris)}
+        
     },[player])
     
 
     function handleColor(){
-        if((!taken )){
-            
+        if((!taken && color === vert)|| first){
+        
             setColor(()=>player?rouge:noir)
             setTaken(true)
             setPlayer(prev=>!prev)
@@ -34,11 +39,14 @@ export default function Bille(props){
                 y:y,
                 piece:props.class
             })
+            setFirst(false)
+            console.log(first)
             
-
+            
+            
             
         }else{
-            alert(`placement already taken !`)
+            alert(`placement already taken ! or invalid one `)
             
         }
         
