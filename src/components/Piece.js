@@ -1,9 +1,11 @@
-import React from "react";
+
 import Bille from "./Bille";
 
 
 
+
 export default function Piece(props){
+    
     const x = props.x ;
     const y = props.y ;
     const cord = [{x:x+20,y:y+20},{x:x+20,y:y+93},{x:x+20,y:y+164},
@@ -13,7 +15,7 @@ export default function Piece(props){
         <Bille
             x={bille.x}
             y={bille.y}
-            cr={props.cp}
+            class={props.class}
             
             
 
@@ -40,7 +42,10 @@ export default function Piece(props){
         >
             
         </div>
+        
         {billes}
+    
+        
         </>
     )
 }

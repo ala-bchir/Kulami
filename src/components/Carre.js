@@ -13,7 +13,7 @@ export default function Carre(props){
         <Bille
             x={bille.x}
             y={bille.y}
-            cr={props.cp}
+            class={props.class}
             
 
         />
