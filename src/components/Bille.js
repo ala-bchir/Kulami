@@ -1,5 +1,6 @@
 import React,{useState,useEffect, useContext} from "react";
 import { FirstContext } from "./First";
+import { FreeContext } from "./FreePlacement";
 import { LastContext } from "./Lastpick";
 import { UserContext } from "./Player";
 
@@ -13,6 +14,7 @@ export default function Bille(props){
     const [taken,setTaken] = useState(false)
     const { player, setPlayer } = useContext(UserContext);
     const {lastpick,setLastpick} = useContext(LastContext);
+    const {free,setFree} = useContext(FreeContext)
     
     const x = props.x
     const y = props.y
@@ -21,11 +23,14 @@ export default function Bille(props){
         if(((x === lastpick.x && piece !== lastpick.piece)||(y === lastpick.y && piece !== lastpick.piece)) && !taken){
             setColor(vert)
             
+            setFirst(prev=>prev+1)
+            console.log(free)
+            
             
         }
         if(((x!= lastpick.x && y!= lastpick.y) && !taken)||(piece===lastpick.piece && !taken)){setColor(gris)}
         
-    },[player])
+        },[player])
     
 
     function handleColor(){
@@ -40,7 +45,7 @@ export default function Bille(props){
                 piece:props.class
             })
             setFirst(false)
-            console.log(first)
+            
             
             
             

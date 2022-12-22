@@ -1,3 +1,3 @@
 import { createContext } from "react";
 
-export const LastContext = createContext();
+export const LastContext = createContext(null);

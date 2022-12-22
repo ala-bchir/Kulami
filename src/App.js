@@ -9,14 +9,45 @@ import Trio from './components/Trio';
 import { UserContext } from './components/Player';
 import { LastContext } from './components/Lastpick';
 import { FirstContext } from './components/First';
+import { FreeContext } from './components/FreePlacement';
 
 
 function App() {
-  
+  //const [test,setTest] = useState(false)
   const [player,setPlayer] = useState(true)
   const [lastpick,setLastpick] = useState({x:0,y:0,piece:""})
   const [first,setFirst] = useState(true)
+  const [free,setFree] = useState(0)
   
+  
+  /*const [formData, setFormData] = useState(
+      {choix: "", X:null, Y:null,id:""}
+  )
+  
+  function handleChange(event) {
+      setFormData(prevFormData => {
+          return {
+              ...prevFormData,
+              [event.target.name]: event.target.value
+          }
+      })
+  }
+  function createPieces() {
+    if(formData.choix===2){
+      return(<Duo x={formData.X} y={formData.Y} class={formData.id}/>)
+  
+    }
+  }
+  function toggle(){
+    setTest(true)
+
+    <h2>Kulami</h2>
+      <input placeholder="choix de la piece" type="number" name="choix" onChange={handleChange}/>
+      <input placeholder="Position X" type="number" name="X" onChange={handleChange}/>
+      <input placeholder="Position Y" type="number" name="Y"onChange={handleChange}/>
+      <input placeholder="id" type="text" name="id"onChange={handleChange}/>
+      <button onClick={toggle}>Create </button>
+  }*/
   
   
   
@@ -24,10 +55,13 @@ function App() {
   return (
     
     <div className="App">
-      <h2>Kulami</h2>
+      
+
+      <FreeContext.Provider value={{free,setFree}}>
       <FirstContext.Provider value={{first,setFirst}}>
       <LastContext.Provider value={{lastpick,setLastpick}}>
       <UserContext.Provider value={{player,setPlayer}}>
+      
       <Piece x={700} y={150} class="1" />
       <Piece x={700} y={379}  class="2"/>
       <Piece x={852} y={150}  class="3"/>
@@ -39,6 +73,7 @@ function App() {
       </UserContext.Provider>
       </LastContext.Provider>
       </FirstContext.Provider>
+      </FreeContext.Provider>
       <div>{player?"Current Player: 1":"Current Player: 2"}</div>
       
       
