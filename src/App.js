@@ -2,16 +2,13 @@ import './App.css';
 import { useState } from 'react';
 
 
-import Piece from './components/Piece';
-import Carre from './components/Carre';
-import Duo from './components/Duo';
-import Trio from './components/Trio';
+import MapCarre from './components/MapCarre';
 import { UserContext } from './components/Player';
 import { LastContext } from './components/Lastpick';
 import { FirstContext } from './components/First';
 import { FreeContext } from './components/FreePlacement';
 import { PlayedContext } from './components/PlayedPlacement';
-import { beforeLastContext } from './components/beforeLastpick';
+import { BeforeLastContext} from './components/BeforeLastpick';
 
 
 function App() {
@@ -150,20 +147,13 @@ function App() {
     <div className="App">
       
 
-      <FreeContext.Provider value={{free,setFree}}>
+      <BeforeLastContext.Provider value={{beforelastpick,setBeforeLastpick}}>
       <FirstContext.Provider value={{first,setFirst}}>
       <LastContext.Provider value={{lastpick,setLastpick}}>
       <UserContext.Provider value={{player,setPlayer}}>
       <PlayedContext.Provider value ={{played,setPlayed}}>
       
-      <Piece x={350} y={70} class={0} type={6} position ='h'/>
-      <Piece x={590} y={70} class={1} type={6} position ='v'/>
-      <Trio x={350} y={230} class={2} type={3} position ='h'/>
-      <Trio x={750} y={70} class={3} type={3} position ='v'/>
-      <Duo x={1000} y={230} class={4} type={2} position ='h'/>
-      <Duo x={1000} y={70} class={5} type={2} position ='v'/>
-      <Carre x={350} y={430} class={6} type={4} />
-      
+      <MapCarre/>
       
       
       
@@ -171,7 +161,7 @@ function App() {
       </UserContext.Provider>
       </LastContext.Provider>
       </FirstContext.Provider>
-      </FreeContext.Provider>
+      </BeforeLastContext.Provider>
       
       <div>{player?"Current Player: 1":"Current Player: 2"}</div>
       <button onClick={calculScore}>click me ! </button>
