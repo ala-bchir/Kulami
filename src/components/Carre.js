@@ -1,5 +1,6 @@
 import React from "react";
 import Bille from "./Bille";
+import dir from "../images/4.png";
 
 
 
@@ -23,24 +24,25 @@ export default function Carre(props){
         })
 
     return(
-        <>
-        <div
-            style={{
-                position: 'absolute',
-                left: props.x,
-                top: props.y,
-                width: 150,
-                height: 150,
-                backgroundColor: "#Eccb52",
-                borderRadius: 19
+        <div>
+            <img src={dir} alt="piece à 6" 
+                width = "150" height="150"
+                style={
+                    {
+                        position:"absolute",
+                        left: x,
+                        top: y
+                    }
+            
+                
+                }
+                
+            />
+            {billes}
     
-                }       
-            }
-            
-        >
-            
         </div>
-        {billes}
-        </>
+        
+        
+     
     )
 }

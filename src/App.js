@@ -11,11 +11,13 @@ import { LastContext } from './components/Lastpick';
 import { FirstContext } from './components/First';
 import { FreeContext } from './components/FreePlacement';
 import { PlayedContext } from './components/PlayedPlacement';
+import { beforeLastContext } from './components/beforeLastpick';
 
 
 function App() {
   const [player,setPlayer] = useState(true)
   const [lastpick,setLastpick] = useState({x:0,y:0,piece:""})
+  const [beforelastpick,setBeforeLastpick] = useState({x:0,y:0,piece:""})
   const [first,setFirst] = useState(true)
   const [free,setFree] = useState(0)
   const [played,setPlayed] = useState([])
@@ -52,7 +54,7 @@ function App() {
       <input placeholder="id" type="text" name="id"onChange={handleChange}/>
       <button onClick={toggle}>Create </button>
   }*/
-  console.log(played)
+  
   const [score,setScore] = useState(new Array(9).fill(0));
   const [scoreP1,setScoreP1] = useState(0);
   const [scoreP2,setScoreP2] = useState(0);
@@ -129,14 +131,17 @@ function App() {
 
 
 
+    console.log(played)
+    console.log("pieces appartenant à  p1: "+ p1)
+    console.log("pieces appartenant à p2: "+p2)
+    console.log("score du rouge :"+scoreP1)
+    console.log("score du Noir: "+scoreP2)
+    console.log("pieces appartenant à : "+ p1)
+    console.log("pieces appartenant à : "+p2)
     
-    console.log(scoreP1)
-    console.log(scoreP2)
-    console.log(p1)
-    console.log(p2)
 
 
-    console.log(score);
+   
     
   }
 
@@ -151,15 +156,10 @@ function App() {
       <UserContext.Provider value={{player,setPlayer}}>
       <PlayedContext.Provider value ={{played,setPlayed}}>
       
-      <Piece x={700} y={150} class={0} type={6} />
-      <Piece x={700} y={379}  class={1} type={6}/>
-      <Piece x={852} y={150}  class={2} type={6}/>
-      <Piece x={852} y={379} class={3} type={6}/>
-      <Carre x={700} y={608}  class={4} type={4}/>
-      <Duo x={618} y={150}  class={5} type={2}/>
-      <Duo x={1004} y={150}  class={6} type={2}/>
-      <Trio x={618} y={379}  class={7} type={3}/>
-      <Trio x={1004} y={379} class={8} type={3}/>
+      <Piece x={350} y={70} class={0} type={6} position ='h'/>
+      <Carre x={500} y={70}  class={4} type={4}/>
+      
+      
       
       </PlayedContext.Provider>
       </UserContext.Provider>
