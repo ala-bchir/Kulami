@@ -13,6 +13,7 @@ export default function Trio(props){
             x={bille.x}
             y={bille.y}
             class={props.class}
+            type ={props.type}
             
 
         />

@@ -2,19 +2,25 @@ import React,{useState,useEffect, useContext} from "react";
 import { FirstContext } from "./First";
 import { FreeContext } from "./FreePlacement";
 import { LastContext } from "./Lastpick";
+import { PlayedContext } from "./PlayedPlacement";
 import { UserContext } from "./Player";
 
-export default function Bille(props){
-    const {first,setFirst}= useContext(FirstContext);
+export default function Bille(props){    
+    
     const rouge ="https://microentreprendre.com/wp-content/uploads/2021/01/cercle-rouge-fond-transparent.png"
     const gris = "https://icones.pro/wp-content/uploads/2021/04/icone-cercle-rempli-gris.png"
     const noir = "https://www.pngkey.com/png/full/439-4396743_wca-black-circle.png"
     const vert = "https://upload.wikimedia.org/wikipedia/commons/9/9a/Rond_vert.png"
-    const [color,setColor] = useState(gris)
-    const [taken,setTaken] = useState(false)
-    const { player, setPlayer } = useContext(UserContext);
-    const {lastpick,setLastpick} = useContext(LastContext);
+    const [color,setColor] = useState(gris) // couleur de l'emplacement de la bille 
+    const [taken,setTaken] = useState(false) // l'etat de la bille
+    const { player, setPlayer } = useContext(UserContext); // joueur actuelle
+    const {lastpick,setLastpick} = useContext(LastContext); // derniere placement 
+    const {first,setFirst} = useContext(FirstContext) // indique si c'est la premiere mouvement 
     const {free,setFree} = useContext(FreeContext)
+    const {played,setPlayed} = useContext(PlayedContext)
+    
+    
+    
     
     const x = props.x
     const y = props.y
@@ -22,20 +28,20 @@ export default function Bille(props){
     useEffect(()=>{
         if(((x === lastpick.x && piece !== lastpick.piece)||(y === lastpick.y && piece !== lastpick.piece)) && !taken){
             setColor(vert)
-            
-            setFirst(prev=>prev+1)
-            console.log(free)
-            
-            
+
         }
-        if(((x!= lastpick.x && y!= lastpick.y) && !taken)||(piece===lastpick.piece && !taken)){setColor(gris)}
+        if(((x!== lastpick.x && y!== lastpick.y) && !taken)||(piece===lastpick.piece && !taken)){
+            setColor(gris)}
+
+        
+        
         
         },[player])
     
 
     function handleColor(){
-        if((!taken && color === vert)|| first){
-        
+        if((!taken && color===vert)||first){
+            
             setColor(()=>player?rouge:noir)
             setTaken(true)
             setPlayer(prev=>!prev)
@@ -43,15 +49,24 @@ export default function Bille(props){
                 x:x,
                 y:y,
                 piece:props.class
+                
             })
             setFirst(false)
             
             
             
+            setPlayed([...played,{
+                player : player,
+                piece : piece,
+                type : props.type
+            }])
+            //console.log(played)
+            
+            
             
             
         }else{
-            alert(`placement already taken ! or invalid one `)
+            alert(`placement already taken !`)
             
         }
         
