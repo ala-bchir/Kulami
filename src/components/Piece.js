@@ -12,8 +12,8 @@ export default function Piece(props){
     const y = props.y ; //postion de la piece sur l'axe des y
     if(props.position === 'v'){ 
         
-        const cord = [{x:x+20,y:y+20},{x:x+20,y:y+93},{x:x+20,y:y+164},
-                    {x:x+86,y:y+20},{x:x+86,y:y+93},{x:x+86,y:y+164}] // tableau des cordonnées des trou pour les billes
+        const cord = [{x:x+18,y:y+19},{x:x+18,y:y+99},{x:x+18,y:y+179},
+                    {x:x+98,y:y+19},{x:x+98,y:y+99},{x:x+98,y:y+179}] // tableau des cordonnées des trou pour les billes
         const billes = cord.map((bille)=>{
             return(
             <Bille
@@ -28,8 +28,8 @@ export default function Piece(props){
 
         return(
             <div>
-               && <img src={dir_v} alt="piece à 6" 
-                    width = "150" height="227"
+                <img src={dir_v} alt="piece à 6" 
+                    width = "160" height="240"
                     style={
                         {
                             position:"absolute",
@@ -43,7 +43,7 @@ export default function Piece(props){
                 />
                 {billes}
     
-        </div>
+            </div>
                 
                  
             
@@ -53,8 +53,8 @@ export default function Piece(props){
 
     if(props.position === 'h'){ 
         
-        const cord = [{x:x+20,y:y+20},{x:x+20,y:y+93},{x:x+152,y:y+20},
-                    {x:x+86,y:y+20},{x:x+86,y:y+93},{x:x+152,y:y+93}] // tableau des cordonnées des trou pour les billes
+        const cord = [{x:x+18,y:y+19},{x:x+98,y:y+19},{x:x+178,y:y+19},
+                    {x:x+18,y:y+99},{x:x+98,y:y+99},{x:x+178,y:y+99}] // tableau des cordonnées des trou pour les billes
         const billes = cord.map((bille)=>{
             return(
             <Bille
@@ -70,7 +70,7 @@ export default function Piece(props){
         return(
             <div>
                 <img src={dir_h} alt="piece à 6" 
-                    width = "227" height="150"
+                    width = "240" height="160"
                     style={
                         {
                             position:"absolute",

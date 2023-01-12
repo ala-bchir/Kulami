@@ -9,7 +9,7 @@ export default function Trio(props){
     const x = props.x ;
     const y = props.y ;
     if(props.position ==='v'){
-        const cord = [{x:x+20,y:y+20},{x:x+20,y:y+93},{x:x+20,y:y+164}] 
+        const cord = [{x:x+18,y:y+19},{x:x+18,y:y+99},{x:x+18,y:y+179}] 
         const billes = cord.map((bille)=>{
             return(
             <Bille
@@ -27,7 +27,7 @@ export default function Trio(props){
         return(
             <div>
             <img src={dir_v} alt="piece à 6" 
-                width = "80" height="227"
+                width = "80" height="240"
                 style={
                     {
                         position:"absolute",
@@ -47,7 +47,7 @@ export default function Trio(props){
 
 
     if(props.position ==='h'){
-        const cord = [{x:x+20,y:y+20},{x:x+86,y:y+20},{x:x+152,y:y+20}] 
+        const cord = [{x:x+18,y:y+19},{x:x+98,y:y+19},{x:x+178,y:y+19}] 
         const billes = cord.map((bille)=>{
             return(
             <Bille
@@ -65,7 +65,7 @@ export default function Trio(props){
         return(
             <div>
             <img src={dir_h} alt="piece à 6" 
-                width = "227" height="80"
+                width = "240" height="80"
                 style={
                     {
                         position:"absolute",

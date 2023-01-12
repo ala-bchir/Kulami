@@ -157,7 +157,13 @@ function App() {
       <PlayedContext.Provider value ={{played,setPlayed}}>
       
       <Piece x={350} y={70} class={0} type={6} position ='h'/>
-      <Carre x={500} y={70}  class={4} type={4}/>
+      <Piece x={590} y={70} class={1} type={6} position ='v'/>
+      <Trio x={350} y={230} class={2} type={3} position ='h'/>
+      <Trio x={750} y={70} class={3} type={3} position ='v'/>
+      <Duo x={1000} y={230} class={4} type={2} position ='h'/>
+      <Duo x={1000} y={70} class={5} type={2} position ='v'/>
+      <Carre x={350} y={430} class={6} type={4} />
+      
       
       
       

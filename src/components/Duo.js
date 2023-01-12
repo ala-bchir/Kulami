@@ -9,8 +9,7 @@ export default function Duo(props){
     const x = props.x ;
     const y = props.y ;
     if(props.position ==='v'){
-        const cord = [{x:x+20,y:y+20},
-                        {x:x+20,y:y+93}] 
+        const cord = [{x:x+18,y:y+19},{x:x+18,y:y+99}] 
         const billes = cord.map((bille)=>{
             return(
             <Bille
@@ -28,7 +27,7 @@ export default function Duo(props){
         return(
             <div>
                 <img src={dir_v} alt="piece à 6" 
-                    width = "80" height="150"
+                    width = "80" height="160"
                     style={
                         {
                             position:"absolute",
@@ -49,8 +48,7 @@ export default function Duo(props){
     }
 
     if(props.position ==='h'){
-        const cord = [{x:x+20,y:y+20},
-                        {x:x+86,y:y+20}] 
+        const cord = [{x:x+18,y:y+19},{x:x+98,y:y+19}] 
         const billes = cord.map((bille)=>{
             return(
             <Bille
@@ -68,7 +66,7 @@ export default function Duo(props){
         return(
             <div>
                 <img src={dir_h} alt="piece à 6" 
-                    width = "150" height="80"
+                    width = "160" height="80"
                     style={
                         {
                             position:"absolute",

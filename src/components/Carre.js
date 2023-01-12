@@ -7,8 +7,8 @@ import dir from "../images/4.png";
 export default function Carre(props){
     const x = props.x ;
     const y = props.y ;
-    const cord = [{x:x+20,y:y+20},{x:x+20,y:y+93},
-                {x:x+86,y:y+20},{x:x+86,y:y+93}] 
+    const cord = [{x:x+18,y:y+19},{x:x+18,y:y+99},
+                    {x:x+98,y:y+19},{x:x+98,y:y+99}] 
     const billes = cord.map((bille)=>{
         return(
         <Bille
@@ -26,7 +26,7 @@ export default function Carre(props){
     return(
         <div>
             <img src={dir} alt="piece à 6" 
-                width = "150" height="150"
+                width = "160" height="160"
                 style={
                     {
                         position:"absolute",
